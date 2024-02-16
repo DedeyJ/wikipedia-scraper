@@ -48,8 +48,11 @@ class WikipediaScraper():
                 break
         
         # Some regex to clean up first_paragraph.
-        first_paragraph = re.sub("\[.*\]", "", first_paragraph)
+        first_paragraph = re.sub(r"\[.*\]", "", first_paragraph)
         first_paragraph = re.sub(r"\n", "", first_paragraph)
+        first_paragraph = re.sub(r"\\", "" , first_paragraph)
+        first_paragraph = re.sub(r"/.*;\s", "" , first_paragraph)
+
 
         return first_paragraph
 
@@ -114,9 +117,14 @@ class WikipediaScraper():
     def read_json(self):
         """Reads the previously written json file"""
         file_path = "./data/leaders.json"
-        with open(file_path, "r") as file:
-            data = json.load(file)
-        print(data)
+        try:
+            with open(file_path, "r") as file:
+                data = json.load(file)
+            print(data)
+        except FileNotFoundError:
+            print("The file does not exist.")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
 
 # Exception class for expired cookie error
 class CookieExpiredError(Exception):
