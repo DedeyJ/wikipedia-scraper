@@ -1,40 +1,36 @@
-# README
-## _Wikipedia-scraper_
+# Wikipedia-scraper README
 
-### Description
-In this small project, we create a wikipedia scraper for the express purpose of scraping the first paragraph found on each wiki page from all the leaders of a country in history
+## Description
 
-### Installation & Requirements
-Download or pull this code from the repository.
+Welcome to the Wikipedia-scraper project. This initiative focuses on developing a specialized Wikipedia scraper designed to meticulously extract the initial paragraph from each historical leader's Wikipedia page.
 
-This is best run in a virtual python 3.12 environment
+## Installation & Requirements
 
-If virtualenv is not yet installed, install it using:
+To get started, obtain the code by either downloading or pulling it from the repository.
+
+For optimal performance, use the virtual environment included in the repository
+
+Activate the virtual environment:
+
 ~~~
-pip install virtualenv
+.venv\Scripts\Activate.ps1
 ~~~
-Start a new envrionment:
-~~~
-python -m venv <virtual-environment-name>
-~~~
-Install required packages:
+
+Install the necessary packages, if not working with the vritual environment:
+
 ~~~
 pip install -r requirements.txt
 ~~~
 
+## Usage
 
-### Usage
-The program is run by using following code
+Run the program with the following command:
+
 ~~~
 python3 main.py 
 ~~~
+The program fetches country codes from the [Country Leaders API](https://country-leaders.onrender.com/). Subsequently, it retrieves country leaders' dictionaries based on these codes. The scraper then extracts the Wikipedia URL, captures the first paragraph from each page, and incorporates this information into the libraries. The output is a .json file, conveniently located in the data directory.
 
-This program will lookup the country code from following API: https://country-leaders.onrender.com/
+## Additional Information
 
-Based on these country codes, it will lookup the country leaders dictionaries. 
-Then it will take the wiki-url and take the first paragraph, and add this to these libraries.
-This is then output in a .json file that can be found in the data directory.
-
-### More
-This was a project done for the BeCode AI course. Time to complete was 3 days.
-
+This project was developed as part of the BeCode AI course and was successfully completed within a timeframe of 3 days.
