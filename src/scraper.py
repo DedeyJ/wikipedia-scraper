@@ -37,7 +37,7 @@ class WikipediaScraper():
         wikipedia = session.get(wikipedia_url).content
 
         # Put the content in a BeautifulSoup object to make use of its functions
-        soup = BeautifulSoup(wikipedia, "html")
+        soup = BeautifulSoup(wikipedia, "lxml")
 
         # Find all p class elements and look if it has b class elements in it. 
         paragraphs = soup.find_all("p")
